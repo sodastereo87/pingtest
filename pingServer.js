@@ -4,6 +4,8 @@ const ping = require('ping');
 const app = express();
 const PORT = 3000;
 
+// Usar node "node pingServer.js" para iniciar el server en consola
+
 // Objeto para almacenar el historial de latencias
 const cache = {};
 
@@ -33,11 +35,11 @@ setInterval(() => {
     // Muestra cada ping en la consola
     console.log('Executing ping interval...');
     // Ejecutar el ping al inicio y luego cada 30 minutos
-    const devices = ['router1', 'router2'];  // Muestra los nombres de los dispositivos
+    const devices = ['router1', 'router2', 'router3'];  // Muestra los nombres de los dispositivos
     devices.forEach((device) => {
         pingDevice(device);
     });
-}, 60 * 1000);  // 30 minutos en milisegundos
+}, 30 * 60 * 1000);  // 30 minutos en milisegundos
 
 // Ruta para obtener la información en caché de todos los dispositivos
 app.get('/devices', (req, res) => {
