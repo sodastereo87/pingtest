@@ -30,12 +30,14 @@ const pingDevice = async (device) => {
 
 // Programar pings periódicos a todos los dispositivos cada 30 minutos
 setInterval(() => {
+    // Muestra cada ping en la consola
+    console.log('Executing ping interval...');
     // Ejecutar el ping al inicio y luego cada 30 minutos
-    const devices = ['router1', 'router2'];  // Agrega aquí los nombres de tus dispositivos
+    const devices = ['router1', 'router2'];  // Muestra los nombres de los dispositivos
     devices.forEach((device) => {
         pingDevice(device);
     });
-}, 30 * 60 * 1000);  // 30 minutos en milisegundos
+}, 60 * 1000);  // 30 minutos en milisegundos
 
 // Ruta para obtener la información en caché de todos los dispositivos
 app.get('/devices', (req, res) => {
